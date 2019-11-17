@@ -1,0 +1,50 @@
+<div [formGroup]="addressForm">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Street" formControlName="street">
+        <mat-error *ngIf="addressForm.controls['street'].hasError('required')">
+          Street is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Street number" formControlName="streetNumber">
+        <mat-error *ngIf="addressForm.controls['streetNumber'].hasError('required')">
+          Street number is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput #zipCode maxlength="5" placeholder="Postal Code" type="number" formControlName="zipCode">
+        <mat-hint align="end">{{zipCode.value.length}} / 5</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="City" formControlName="city">
+        <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+          City is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="State" formControlName="state">
+          <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+            {{ state.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
+          State is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

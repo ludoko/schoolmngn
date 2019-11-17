@@ -1,0 +1,18 @@
+<app-toolbar (toggleSidenavEvent)="snav.toggle()">
+</app-toolbar>
+
+<mat-sidenav-container fullscreen flex class="sidenav-container" hasBackdrop>
+    <mat-sidenav #snav class="navbar-sidenav" mode="push">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/students" class="app-menu-button" routerLinkActive="active" (click)="snav.toggle()">Students</a>
+            <a mat-list-item href="/home" class="app-menu-button" routerLinkActive="active" (click)="snav.toggle()">Home</a>
+            <a mat-list-item href="#" class="app-menu-button" routerLinkActive="active" (click)="snav.toggle()">Link 3</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="page-content">
+        <!-- Add Content Here -->
+        <!-- <app-students></app-students> -->
+        <router-outlet></router-outlet>
+        <!-- <p><button mat-button (click)="snav.toggle()">snav.toggle()</button></p> -->
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,33 @@
+<form [formGroup]="studentForm" #formControl="ngForm" (ngSubmit)="onSubmit()">
+  <mat-card class="student-card">
+    <mat-card-header>
+      <mat-card-title>Student Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="First name" formControlName="firstName">
+            <mat-error *ngIf="studentForm.controls['firstName'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Second name" formControlName="secondName">
+            <mat-error *ngIf="studentForm.controls['secondName'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- <app-address [addressForm]="studentForm.controls.address" [address]="student.address"></app-address> -->
+      <app-address [addressForm]="studentForm.controls.address"></app-address>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!formControl.valid" mat-dialog-close="1">Submit</button>
+      <button mat-raised-button color="secondary" (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

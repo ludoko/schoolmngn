@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataService } from './data.service';
+import { DisplayErrorService } from './display-error.service';
 
-describe('DataService', () => {
+describe('DisplayErrorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DataService = TestBed.get(DataService);
+    const service: DisplayErrorService = TestBed.get(DisplayErrorService);
     expect(service).toBeTruthy();
   });
 });
